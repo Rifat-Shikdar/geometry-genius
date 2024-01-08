@@ -49,3 +49,45 @@ function calculateRectangleArea() {
     rectangleAreaSpan.innerText = area;
 
 }
+
+
+// ---------------- Reuseable Function ---------------
+
+// Parallelogram
+
+function calculateParallelogramArea(){
+    // console.log('para');
+    const base = getInputValue('parallelogram-base');
+    // console.log(base);
+
+    const height = getInputValue('parallelogram-height');
+    // console.log(height);
+
+    const area = base * height;
+    setElementInnerText('parallelogram-area', area);
+
+}
+
+function calculateEllipseArea(){
+    const majorRadius = getInputValue('ellipse-major-radius');
+    const minorRadius = getInputValue('ellipse-minor-radius');
+    const  area =  3.14 * majorRadius * minorRadius;
+    setElementInnerText('ellipse-area', area);
+}
+
+function getInputValue(fieldId) {
+    const inputField = document.getElementById(fieldId);
+    const inputValueText = inputField.value;
+    const value = parseFloat(inputValueText);
+    inputField.value = '';
+    return value;
+    
+}
+
+// reuseable set span, p , div etc text
+
+function setElementInnerText(elementId, area){
+
+    const element = document.getElementById(elementId);
+    element.innerText = area;
+}
